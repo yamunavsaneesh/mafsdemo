@@ -1,12 +1,11 @@
-# mafsdemo
-MAFS DEMO
+# MAFS DEMO
 
 ### What is this repository for? ###
 
 * CMS for MAFS
 * Developed in Codeigniter Version 3 
 
-### How do I get set up? ###
+### How do I set up? ###
 
 * Change the RewriteBase path in .htaccess
 * Change the base_url path in config.php under application/config 
