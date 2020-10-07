@@ -1554,7 +1554,7 @@ CREATE TABLE `pages_desc` (
 -- Dumping data for table `pages_desc`
 --
 INSERT INTO `pages_desc` (`desc_id`, `pages_id`, `title`, `meta_title`, `short_desc`, `desc`, `keywords`, `banner_text`, `banner_image`, `language`) VALUES
-(1, 1, 'Contact Us', 'Contact Saralle', 'contactus', '<p>contactus</p>\r\n', 'contactus', '', 'spot-contact.jpg', 'en'),
+(1, 1, 'Contact Us', 'Contact', 'contactus', '<p>contactus</p>\r\n', 'contactus', '', 'spot-contact.jpg', 'en'),
 (2, 1, 'Contact Us', NULL, 'contactus', '<p>contactus</p>\r\n', 'contactus', '', '', 'ar'),
 (3, 2, 'Clients', 'clients', 'clients', 'We cast confident and delighted international clients', '', '', '', 'en'),
 (4, 2, 'Clients', 'clients', 'clients', '', '', '', '', 'ar'),
