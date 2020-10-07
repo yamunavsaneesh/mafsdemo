@@ -2,32 +2,24 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: sql212.epizy.com
 -- Generation Time: Oct 06, 2020 at 11:42 PM
 -- Server version: 5.6.48-88.0
 -- PHP Version: 7.2.22
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
 --
--- Database: `epiz_26878874_mafsdb`
+-- Database: `mafsdb`
 --
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `admin`
 --
-
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `roles_id` int(11) NOT NULL DEFAULT '0',
@@ -44,32 +36,25 @@ CREATE TABLE `admin` (
   `bank_details` varchar(500) COLLATE latin1_general_ci DEFAULT NULL,
   `terms` varchar(500) COLLATE latin1_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `admin`
 --
-
 INSERT INTO `admin` (`id`, `roles_id`, `name`, `email`, `location`, `username`, `password`, `status`, `record_paging`, `invoice_start`, `lpo_start`, `address`, `bank_details`, `terms`) VALUES
 (1, 1, 'Super Admin', 'mail2yamunav@gmail.com', 0, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Y', NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 1, 'Yamuna', 'mail2yamunav@yahoo.co.in', 0, 'yamuna', '21232f297a57a5a743894a0e4a801fc3', 'Y', NULL, NULL, NULL, NULL, NULL, NULL);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `admin_logins`
 --
-
 CREATE TABLE `admin_logins` (
   `id` int(11) NOT NULL,
   `admin_id` int(11) DEFAULT NULL,
   `login_date` datetime NOT NULL,
   `login_ip` varchar(300) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `admin_logins`
 --
-
 INSERT INTO `admin_logins` (`id`, `admin_id`, `login_date`, `login_ip`) VALUES
 (1, 1, '2020-10-04 15:38:41', '::1'),
 (2, 1, '2020-10-04 15:38:52', '::1'),
@@ -82,13 +67,10 @@ INSERT INTO `admin_logins` (`id`, `admin_id`, `login_date`, `login_ip`) VALUES
 (9, 1, '2020-10-06 08:35:45', '5.193.27.176'),
 (10, 1, '2020-10-06 08:39:06', '217.165.23.2'),
 (11, 1, '2020-10-06 09:36:37', '5.193.27.176');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `admin_menu`
 --
-
 CREATE TABLE `admin_menu` (
   `id` int(11) NOT NULL,
   `class` varchar(100) COLLATE latin1_general_ci NOT NULL,
@@ -98,11 +80,9 @@ CREATE TABLE `admin_menu` (
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'N',
   `sort_order` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `admin_menu`
 --
-
 INSERT INTO `admin_menu` (`id`, `class`, `name`, `link`, `parent_id`, `status`, `sort_order`) VALUES
 (1, '', 'Dashboard', 'admin/home', 0, 'Y', 1),
 (2, 'view_page', 'View Site', 'home', 1, 'Y', 1),
@@ -269,25 +249,19 @@ INSERT INTO `admin_menu` (`id`, `class`, `name`, `link`, `parent_id`, `status`, 
 (208, 'page', 'Add Sectors', 'admin/sectors/add', 206, 'Y', 2),
 (209, 'page', 'Categories', 'admin/sectors/categories', 206, 'Y', 3),
 (210, 'page', 'Add Category', 'admin/sectors/addcategory', 206, 'Y', 4);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `admin_reset`
 --
-
 CREATE TABLE `admin_reset` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `user_key` varchar(300) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `applications`
 --
-
 CREATE TABLE `applications` (
   `id` int(11) NOT NULL,
   `jobs_id` int(11) NOT NULL,
@@ -319,33 +293,25 @@ CREATE TABLE `applications` (
   `suspend` varchar(5) COLLATE latin1_general_ci NOT NULL DEFAULT 'N',
   `read` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `banners`
 --
-
 CREATE TABLE `banners` (
   `id` int(11) NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci DEFAULT 'N',
   `sort_order` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `banners`
 --
-
 INSERT INTO `banners` (`id`, `status`, `sort_order`) VALUES
 (1, 'Y', NULL),
 (2, 'Y', NULL);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `banners_desc`
 --
-
 CREATE TABLE `banners_desc` (
   `desc_id` int(11) NOT NULL,
   `banners_id` int(11) NOT NULL,
@@ -356,59 +322,46 @@ CREATE TABLE `banners_desc` (
   `image` varchar(300) COLLATE latin1_general_ci DEFAULT NULL,
   `language` varchar(10) COLLATE latin1_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `banners_desc`
 --
-
 INSERT INTO `banners_desc` (`desc_id`, `banners_id`, `title`, `short_desc`, `link`, `icon`, `image`, `language`) VALUES
 (1, 1, 'Service You Deserve', '<p>&nbsp;</p>\r\n\r\n<p>People You trust</p>\r\n\r\n<p>&nbsp;</p>\r\n', '', '', 'banner_mafs_homepage_21.jpg', 'en'),
 (2, 1, '1', '<p>Service You Deserve. People You trust</p>\r\n', '', '', '', 'ar'),
 (3, 2, 'Bringing Innovative Solutions', '<p><br />\r\nFor Your Building Systems</p>\r\n', '', '', 'hero.png', 'en'),
 (4, 2, '2', 'Bringing innovative solutions for your building systems', '2', '', '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `captcha`
 --
-
 CREATE TABLE `captcha` (
   `captcha_id` bigint(13) UNSIGNED NOT NULL,
   `captcha_time` int(10) UNSIGNED NOT NULL,
   `ip_address` varchar(16) NOT NULL DEFAULT '0',
   `word` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `client`
 --
-
 CREATE TABLE `client` (
   `id` int(11) NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'Y',
   `image` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   `sort_order` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `client`
 --
-
 INSERT INTO `client` (`id`, `status`, `image`, `sort_order`) VALUES
 (1, 'Y', 'al_otaiba.png', 1),
 (2, 'Y', 'al_otaiba_g_t.png', 2),
 (3, 'Y', 'bright_spark.png', 3),
 (4, 'Y', 'homewide.png', 4);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `contacts`
 --
-
 CREATE TABLE `contacts` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
@@ -417,20 +370,15 @@ CREATE TABLE `contacts` (
   `status` enum('Y','N') COLLATE latin1_general_ci DEFAULT 'N',
   `sort_order` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `contacts`
 --
-
 INSERT INTO `contacts` (`id`, `category_id`, `latitude`, `longitude`, `status`, `sort_order`) VALUES
 (1, 1, '12', '12', 'Y', 0);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `contacts_desc`
 --
-
 CREATE TABLE `contacts_desc` (
   `desc_id` int(11) NOT NULL,
   `contacts_id` int(11) NOT NULL,
@@ -441,62 +389,47 @@ CREATE TABLE `contacts_desc` (
   `image` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `contacts_desc`
 --
-
 INSERT INTO `contacts_desc` (`desc_id`, `contacts_id`, `location`, `address`, `address2`, `style`, `image`, `language`) VALUES
 (1, 1, 'Dubai', '<p>Office 2004, API Trio Tower,<br />\r\nAl Barsha1, Dubai-UAE<br />\r\n<a href=\"tel:%208006237\">Toll Free: 800MAFS (6237)</a><br />\r\n<a href=\"mailto:%20info@mafsuae.ae\" target=\"_blank\">info@mafsuae.ae </a></p>\r\n', NULL, NULL, '', 'en'),
 (2, 1, 'Dubai', '<ul>\r\n	<li>\r\n	<p>Office 2004, API Trio Tower, Al Barsha1, Dubai-UAE</p>\r\n	</li>\r\n	<li>\r\n	<p><a href=\"tel:%208006237\">Toll Free: 800MAFS (6237)</a></p>\r\n	</li>\r\n	<li>\r\n	<p><a href=\"mailto:%20info@mafsuae.ae\" target=\"_blank\">info@mafsuae.ae</a></p>\r\n	</li>\r\n</ul>\r\n', NULL, '', '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `contact_category`
 --
-
 CREATE TABLE `contact_category` (
   `id` int(11) NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'N',
   `slug` char(200) COLLATE latin1_general_ci DEFAULT NULL,
   `sort_order` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `contact_category`
 --
-
 INSERT INTO `contact_category` (`id`, `status`, `slug`, `sort_order`) VALUES
 (1, 'Y', 'head-office', NULL);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `contact_category_desc`
 --
-
 CREATE TABLE `contact_category_desc` (
   `desc_id` int(11) NOT NULL,
   `contact_category_id` int(11) NOT NULL,
   `name` varchar(300) CHARACTER SET utf8 NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `contact_category_desc`
 --
-
 INSERT INTO `contact_category_desc` (`desc_id`, `contact_category_id`, `name`, `language`) VALUES
 (1, 1, 'Head Office', 'en'),
 (2, 1, 'Head Office', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `contents`
 --
-
 CREATE TABLE `contents` (
   `id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
@@ -505,11 +438,9 @@ CREATE TABLE `contents` (
   `status` enum('Y','N') COLLATE latin1_general_ci DEFAULT 'N',
   `sort_order` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `contents`
 --
-
 INSERT INTO `contents` (`id`, `category_id`, `slug`, `widgets`, `status`, `sort_order`) VALUES
 (1, 1, 'mafs', '', 'Y', 0),
 (2, 1, 'mhao-group', '', 'Y', 0),
@@ -523,13 +454,10 @@ INSERT INTO `contents` (`id`, `category_id`, `slug`, `widgets`, `status`, `sort_
 (10, 3, 'pagenotfound', '', 'Y', 0),
 (11, 3, 'references', '', 'Y', 0),
 (12, 3, 'our-packages', '', 'Y', 0);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `contents_desc`
 --
-
 CREATE TABLE `contents_desc` (
   `desc_id` int(11) NOT NULL,
   `contents_id` int(11) NOT NULL,
@@ -547,11 +475,9 @@ CREATE TABLE `contents_desc` (
   `banner_image` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `contents_desc`
 --
-
 INSERT INTO `contents_desc` (`desc_id`, `contents_id`, `title`, `meta_title`, `short_desc`, `desc`, `keywords`, `meta_desc`, `date_time`, `image`, `image2`, `pdf`, `banner_text`, `banner_image`, `language`) VALUES
 (1, 1, 'MAFS', 'MAFS', 'MAFS', '<div class=\"row\">\r\n<div class=\"col-lg-6\">\r\n<div class=\"about-img\">\r\n<figure><img class=\"img-fluid w-100 rounded\" src=\"https://mafsuae.ae/wp-content/uploads/2018/05/about_image_2.jpg\" /></figure>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-lg-6 pt-5 pt-lg-0\">\r\n<div class=\"about-content\">\r\n<h3 class=\"font-weight-bold\">WHO WE ARE</h3>\r\n\r\n<h4>Service you deserve. People You Trust!</h4>\r\n\r\n<p>Mohamed Al Otaiba Facilities Management Services LLC, a subsidiary of Mohamed Hareb Al Otaiba Group, is distinctive among its peers and brings together the tailored facility management services that fits your specific working environment and corporate culture. Our facility management services are focused on enhancing your corporate workspace with an innovative approach.</p>\r\n\r\n<p>Our facility management services are focused on enhancing your corporate workspace, with an innovative approach. For clients seeking premium integrated facilities we establish a transparency and look through the needs of the customers to deliver services that can positively impact the customer experience within their business.</p>\r\n</div>\r\n</div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n<div class=\"col-lg-6 pt-5 pt-lg-0\">\r\n<div class=\"about-content\">\r\n<h3 class=\"font-weight-bold\">CORPORATE CULTURE</h3>\r\n\r\n<h4>Our Drive</h4>\r\n\r\n<p>To be adept and alert with the conviction to improve our performance and to seek new ways to deliver ingenious and cost-effective solutions.</p>\r\n\r\n<h4>Our Daring</h4>\r\n\r\n<p>We are resolute, progressive and astute, living in the present with optimism in providing standalone facility management that deliver mould-breaking services and solutions</p>\r\n\r\n<h4>Our Commitment</h4>\r\n\r\n<p>We focus on offering the highest level of service in the industry and deliver real &lsquo;solutions with a soul&rsquo; that truly enhance the value of your investment. We are committed to keep a sight of the constantly changing needs of our customers.</p>\r\n\r\n<h4>Our Cohesion</h4>\r\n\r\n<p>Exchanging knowledge and skills to generate a strong spirit of teamwork, we unite towards a sustainable progress and development. We are always there for each other, working together as one team.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-lg-6\">\r\n<div class=\"about-img\">\r\n<figure><img class=\"img-fluid w-100 rounded\" src=\"https://mafsuae.ae/wp-content/uploads/2018/05/corporate_culture-1.jpg\" /></figure>\r\n</div>\r\n</div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n<div class=\"col-lg-6 pt-5 pt-lg-0\">\r\n<div class=\"about-content\">\r\n<h3 class=\"font-weight-bold\">THE LEGACY</h3>\r\n\r\n<h4>History</h4>\r\n\r\n<p>It is impossible to talk about MAFS without mentioning the importance of the Al Otaiba Family. Al Otaiba is one of the oldest names in the history of the UAE and over the years has had great influence on political, economic and social life in the Emirates. Despite a long family tradition of trading high-quality goods around the world, it was not until 1946 that the MHAO Group was officially formed as a general trading and offshore services establishment. The company would diversify in the 1970s however, under the guidance of the late Mr. Hareb Al Otaiba. The early 70s also saw the opening of the company&rsquo;s prestigious Dubai showroom, which cemented MHAO&rsquo;s name as the watchword for high-end goods. Some of the oldest divisions of the group that still exist today are Food Service Equipment, Leisure &amp; Sports, Bowling, Domestic Appliances, Office Equipment and Customer Service</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-lg-6 pt-5 pt-lg-0\">\r\n<h4>Expansion and Growth</h4>\r\n\r\n<div class=\"about-content\">\r\n<p>The expanding of the company&rsquo;s portfolio that started with food-service equipment has now lead to the launching of Mohamed Al Otaiba Facilities Management Services LLC, a subsidiary of Mohamed Hareb Al Otaiba Group, that enables us to deliver sustainable customer solutions in energy efficiency, asset efficiency and human comfort. We measure our success by looking into the future and chiselling out new niches within the markets that we serve.</p>\r\n\r\n<p>We constantly seek out for cost-effective solutions that fully streamlines budgeting, communications and accountability. This gives our clients both peace-of-mind and the advantage of clearer planning. With more than 1000+ employees working for us we have now made tremendous progress since our inception and look forward to many more decades of success with our team by our side.</p>\r\n</div>\r\n</div>\r\n</div>\r\n', 'MAFS', 'MAFS', '1970-01-01 01:00:00', '', '', '', '', '', 'en'),
 (2, 1, 'MAFS', 'MAFS', 'MAFS', '<p>Mohamed Al Otaiba Facilities Management Services LLC, a subsidiary of Mohamed Hareb Al Otaiba Group, is distinctive among its peers and brings together the tailored facility management services that fits your specific working environment and corporate culture. Our facility management services are focused on enhancing your corporate workspace with an innovative approach. Our facility management services are focused on enhancing your corporate workspace, with an innovative approach. For clients seeking premium integrated facilities we establish a transparency and look through the needs of the customers to deliver services that can positively impact the customer experience within their business.</p>\r\n', 'MAFS', 'MAFS', '2020-10-04 16:21:25', '', '', '', '', '', 'ar'),
@@ -577,13 +503,10 @@ INSERT INTO `contents_desc` (`desc_id`, `contents_id`, `title`, `meta_title`, `s
 (23, 12, 'Our Packages', 'Our Packages', 'Our Packages', 'Coming soon', '', 'Our Packages', '2020-10-05 19:09:15', '', '', '', '', '', 'en'),
 (24, 12, 'Our Packages', 'Our Packages', 'Our Packages', 'Coming soon', '', 'Our Packages', '2020-10-05 19:09:15', '', '', '', '', '', 'ar'),
 (14, 7, 'Terms & Conditions', 'Terms & Conditions', 'Terms & Conditions', '<p>Please read these Terms and Conditions of Use (&quot;Terms&quot;) carefully before using www.mhao.com (&quot;Website&quot;). These Terms apply to all users of this Website including casual browsers. Please read these Terms carefully before using the Website.</p>\r\n\r\n<p>In these Terms, &quot;we&quot;, &quot;us&quot; and &quot;MHAO&quot; means &quot;MHAO&quot;, an organization existing under the laws of the UAE.</p>\r\n\r\n<p>Mohamed Hareb Al Otaiba (&quot;MHAO&quot;) authorizes you to view and download the material present on the Website only for your personal, non-commercial use, provided that you retain all copyright and other proprietary notices contained in the original material on any copies of the materials. Permission is hereby granted to use, copy and distribute the material as presented on the Website and without alteration for non-commercial purposes only; provided that all copyright and other proprietary notices appear in all copies in the same manner as the original. All other uses are prohibited. Any use of the material on any other website or networked computer environment for any purpose is prohibited.</p>\r\n\r\n<p>Copyright / Trademark</p>\r\n\r\n<p>Except where otherwise indicated, all material contained on this Website is the copyrighted property of MHAO, its affiliated companies and/or third party licensors.</p>\r\n\r\n<p>Any unauthorized use of any material may violate copyright, trademark and other laws. If you breach any of these Terms, your authorization to use the Website automatically terminates and you must immediately destroy any downloaded or printed material.</p>\r\n\r\n<p>Except as expressly provided herein, you shall not use any portion of this Website or any other intellectual property of MHAO on any other website, in the source code of any other website, or in any other printed or electronic material. Except as expressly provided herein, you shall not modify, publish, reproduce, republish, create derivative works, copy, upload, post, transmit, distribute, or otherwise use any of this Website&#39;s content or frame this Website within any other Website without our prior written permission. Systematic retrieval of data or other content from this Website to create or compile, directly or indirectly, a collection, compilation, database or directory, without prior written permission from MHAO, is prohibited.</p>\r\n', '', 'Terms & Conditions', '2020-10-05 11:41:39', '', '', '', '', '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `content_category`
 --
-
 CREATE TABLE `content_category` (
   `id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
@@ -592,22 +515,17 @@ CREATE TABLE `content_category` (
   `breadcrumb_status` enum('Y','N') COLLATE latin1_general_ci DEFAULT 'Y',
   `status` enum('Y','N') COLLATE latin1_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `content_category`
 --
-
 INSERT INTO `content_category` (`id`, `parent_id`, `slug`, `widgets`, `breadcrumb_status`, `status`) VALUES
 (1, 0, 'about-us', '', 'Y', 'Y'),
 (2, 0, 'copyrights', '', 'Y', 'Y'),
 (3, 0, 'general', '', 'Y', 'Y');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `content_category_desc`
 --
-
 CREATE TABLE `content_category_desc` (
   `desc_id` int(11) NOT NULL,
   `content_category_id` int(11) NOT NULL,
@@ -617,11 +535,9 @@ CREATE TABLE `content_category_desc` (
   `keywords` text COLLATE latin1_general_ci NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `content_category_desc`
 --
-
 INSERT INTO `content_category_desc` (`desc_id`, `content_category_id`, `name`, `short_desc`, `image`, `keywords`, `language`) VALUES
 (1, 1, 'About Us', 'About Us', NULL, 'About Us', 'en'),
 (2, 1, 'About Us', 'About Us', NULL, 'About Us', 'ar'),
@@ -629,13 +545,10 @@ INSERT INTO `content_category_desc` (`desc_id`, `content_category_id`, `name`, `
 (4, 2, 'References ', 'References ', NULL, '', 'ar'),
 (5, 3, 'General', '', NULL, '', 'en'),
 (6, 3, 'General', '', NULL, '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `countries`
 --
-
 CREATE TABLE `countries` (
   `id` int(10) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -643,11 +556,9 @@ CREATE TABLE `countries` (
   `status` enum('Y','N') NOT NULL DEFAULT 'Y',
   `language` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
 --
 -- Dumping data for table `countries`
 --
-
 INSERT INTO `countries` (`id`, `name`, `isocode`, `status`, `language`) VALUES
 (1, 'Afghanistan', 'AF', 'Y', 'en'),
 (2, 'Albania', 'AL', 'Y', 'en'),
@@ -1077,13 +988,10 @@ INSERT INTO `countries` (`id`, `name`, `isocode`, `status`, `language`) VALUES
 (855, 'Zambia', 'ZM', 'Y', 'ar'),
 (856, 'Zimbabwe', 'ZW', 'Y', 'ar'),
 (857, 'Canada', NULL, 'Y', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `downloads`
 --
-
 CREATE TABLE `downloads` (
   `id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT '0',
@@ -1092,21 +1000,16 @@ CREATE TABLE `downloads` (
   `sort_order` int(11) DEFAULT '0',
   `downloads_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `downloads`
 --
-
 INSERT INTO `downloads` (`id`, `category_id`, `image`, `status`, `sort_order`, `downloads_date`) VALUES
 (1, 1, 'al_otaiba.png', 'Y', 0, '2020-10-04 20:47:59'),
 (2, 1, NULL, 'Y', 0, '2020-10-04 20:52:53');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `downloads_desc`
 --
-
 CREATE TABLE `downloads_desc` (
   `desc_id` int(11) NOT NULL,
   `downloads_id` int(11) NOT NULL,
@@ -1114,63 +1017,48 @@ CREATE TABLE `downloads_desc` (
   `attachment` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `downloads_desc`
 --
-
 INSERT INTO `downloads_desc` (`desc_id`, `downloads_id`, `title`, `attachment`, `language`) VALUES
 (1, 1, 'mafs brochure 1', 'logo_mafs.pdf', 'en'),
 (2, 1, 'mafs brochure 1', '', 'ar'),
 (3, 2, '2', 'logo_mafs1.pdf', 'en'),
 (4, 2, '2', 'logo_mafs1.pdf', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `download_category`
 --
-
 CREATE TABLE `download_category` (
   `id` int(11) NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci DEFAULT NULL,
   `sort_order` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `download_category`
 --
-
 INSERT INTO `download_category` (`id`, `status`, `sort_order`) VALUES
 (1, 'Y', 0);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `download_category_desc`
 --
-
 CREATE TABLE `download_category_desc` (
   `desc_id` int(11) NOT NULL,
   `download_category_id` int(11) NOT NULL,
   `name` varchar(300) CHARACTER SET utf8 DEFAULT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL DEFAULT 'en'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `download_category_desc`
 --
-
 INSERT INTO `download_category_desc` (`desc_id`, `download_category_id`, `name`, `language`) VALUES
 (1, 1, 'Brochures', 'en'),
 (2, 1, 'Brochures', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `enquiry_master`
 --
-
 CREATE TABLE `enquiry_master` (
   `id` int(10) UNSIGNED NOT NULL,
   `refererurl` varchar(255) DEFAULT NULL,
@@ -1190,21 +1078,16 @@ CREATE TABLE `enquiry_master` (
   `is_active` enum('Y','N') NOT NULL DEFAULT 'Y',
   `added_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
 --
 -- Dumping data for table `enquiry_master`
 --
-
 INSERT INTO `enquiry_master` (`id`, `refererurl`, `enq_products`, `enq_surname`, `enq_name`, `enq_email`, `enq_company`, `enq_phone`, `enq_mobile`, `enq_country`, `enq_city`, `enq_subject`, `enq_message`, `enq_salutation`, `enq_positions`, `is_active`, `added_on`) VALUES
 (1, 'http://demo-mafs.epizy.com/cms/en/contactus', NULL, NULL, 'Yamnua V', 'mail2yamunav@gmail.com', NULL, '0501212345', NULL, NULL, NULL, 'Testing', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit dolor, blandit vel euismod ac, lentesque et dolor. Ut id tempus ipsum.', NULL, NULL, 'Y', '2020-10-06 09:00:39'),
 (2, 'http://demo-mafs.epizy.com/cms/en/services/view/housekeeping', NULL, NULL, 'Yamnua V', 'mail2yamunav@gmail.com', NULL, '0501212345', NULL, NULL, NULL, 'Testing', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit dolor, blandit vel euismod ac, lentesque et dolor. Ut id tempus ipsum', NULL, NULL, 'Y', '2020-10-06 09:06:21');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `events`
 --
-
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
@@ -1213,13 +1096,10 @@ CREATE TABLE `events` (
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'N',
   `archive` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'N'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `events_category`
 --
-
 CREATE TABLE `events_category` (
   `id` int(11) NOT NULL,
   `slug` varchar(300) COLLATE latin1_general_ci NOT NULL,
@@ -1228,13 +1108,10 @@ CREATE TABLE `events_category` (
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL,
   `sort_order` int(15) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `events_category_desc`
 --
-
 CREATE TABLE `events_category_desc` (
   `desc_id` int(11) NOT NULL,
   `content_category_id` int(11) NOT NULL,
@@ -1243,13 +1120,10 @@ CREATE TABLE `events_category_desc` (
   `keywords` text COLLATE latin1_general_ci NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `events_desc`
 --
-
 CREATE TABLE `events_desc` (
   `desc_id` int(11) NOT NULL,
   `contents_id` int(11) NOT NULL,
@@ -1269,13 +1143,10 @@ CREATE TABLE `events_desc` (
   `banner_image` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `gallery`
 --
-
 CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
@@ -1283,11 +1154,9 @@ CREATE TABLE `gallery` (
   `status` enum('Y','N') COLLATE latin1_general_ci DEFAULT 'N',
   `sort_order` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `gallery`
 --
-
 INSERT INTO `gallery` (`id`, `category_id`, `slug`, `status`, `sort_order`) VALUES
 (1, 1, NULL, 'Y', 0),
 (2, 1, NULL, 'Y', 0),
@@ -1298,33 +1167,25 @@ INSERT INTO `gallery` (`id`, `category_id`, `slug`, `status`, `sort_order`) VALU
 (7, 1, NULL, 'Y', 0),
 (8, 1, NULL, 'Y', 0),
 (9, 1, NULL, 'Y', 0);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `gallery_category`
 --
-
 CREATE TABLE `gallery_category` (
   `id` int(11) NOT NULL,
   `slug` varchar(300) COLLATE latin1_general_ci NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci DEFAULT NULL,
   `sort_order` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `gallery_category`
 --
-
 INSERT INTO `gallery_category` (`id`, `slug`, `status`, `sort_order`) VALUES
 (1, 'oure-new-works', 'Y', 0);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `gallery_category_desc`
 --
-
 CREATE TABLE `gallery_category_desc` (
   `desc_id` int(11) NOT NULL,
   `gallery_category_id` int(11) NOT NULL,
@@ -1332,21 +1193,16 @@ CREATE TABLE `gallery_category_desc` (
   `image` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `gallery_category_desc`
 --
-
 INSERT INTO `gallery_category_desc` (`desc_id`, `gallery_category_id`, `title`, `image`, `language`) VALUES
 (1, 1, 'Oure New Works', '', 'en'),
 (2, 1, 'Oure New Works', '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `gallery_desc`
 --
-
 CREATE TABLE `gallery_desc` (
   `desc_id` int(11) NOT NULL,
   `gallery_id` int(11) NOT NULL,
@@ -1355,11 +1211,9 @@ CREATE TABLE `gallery_desc` (
   `image` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `gallery_desc`
 --
-
 INSERT INTO `gallery_desc` (`desc_id`, `gallery_id`, `author`, `title`, `image`, `language`) VALUES
 (1, 1, NULL, '1', '1.jpg', 'en'),
 (2, 1, NULL, '1', '1.jpg', 'ar'),
@@ -1379,13 +1233,10 @@ INSERT INTO `gallery_desc` (`desc_id`, `gallery_id`, `author`, `title`, `image`,
 (16, 8, NULL, NULL, '91.jpg', 'ar'),
 (17, 9, NULL, NULL, '101.jpg', 'en'),
 (18, 9, NULL, NULL, '101.jpg', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `languages`
 --
-
 CREATE TABLE `languages` (
   `id` int(11) NOT NULL,
   `name` varchar(300) COLLATE latin1_general_ci NOT NULL,
@@ -1393,34 +1244,26 @@ CREATE TABLE `languages` (
   `code` varchar(10) COLLATE latin1_general_ci NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'N'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `languages`
 --
-
 INSERT INTO `languages` (`id`, `name`, `class`, `code`, `status`) VALUES
 (1, 'English', '', 'en', 'Y'),
 (2, 'Arabic', '', 'ar', 'Y');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `localization`
 --
-
 CREATE TABLE `localization` (
   `id` int(11) NOT NULL,
   `lang_key` text CHARACTER SET utf8 NOT NULL,
   `lang_value` text CHARACTER SET utf8 NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `menuitems`
 --
-
 CREATE TABLE `menuitems` (
   `id` int(11) NOT NULL,
   `menu_id` int(11) DEFAULT NULL,
@@ -1433,11 +1276,9 @@ CREATE TABLE `menuitems` (
   `icon` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci DEFAULT 'N'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `menuitems`
 --
-
 INSERT INTO `menuitems` (`id`, `menu_id`, `parent_id`, `link_type`, `link_object`, `show_subitems`, `target_type`, `sort_order`, `icon`, `status`) VALUES
 (1, 1, 0, 'contents', '5', 'Y', '', 1, NULL, 'Y'),
 (2, 1, 1, 'contents', '1', 'Y', '', 2, NULL, 'Y'),
@@ -1463,13 +1304,10 @@ INSERT INTO `menuitems` (`id`, `menu_id`, `parent_id`, `link_type`, `link_object
 (27, 1, 0, 'internal', '0', 'N', '', 9, NULL, 'Y'),
 (28, 1, 0, 'internal', '0', 'N', '', 10, NULL, 'Y'),
 (29, 1, 0, 'internal', '0', 'N', '', 0, NULL, 'Y');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `menuitems_desc`
 --
-
 CREATE TABLE `menuitems_desc` (
   `desc_id` int(11) NOT NULL,
   `menuitems_id` int(11) NOT NULL,
@@ -1480,11 +1318,9 @@ CREATE TABLE `menuitems_desc` (
   `attachment` varchar(300) COLLATE latin1_general_ci NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `menuitems_desc`
 --
-
 INSERT INTO `menuitems_desc` (`desc_id`, `menuitems_id`, `class`, `name`, `short_desc`, `link`, `attachment`, `language`) VALUES
 (1, 1, '', 'About Us', '', '', '', 'en'),
 (2, 1, '', 'Sectors', NULL, 'sectors', '', 'ar'),
@@ -1544,13 +1380,10 @@ INSERT INTO `menuitems_desc` (`desc_id`, `menuitems_id`, `class`, `name`, `short
 (56, 28, '', 'Careers ', 'Careers', 'careers', '', 'ar'),
 (57, 29, '', 'Home', 'Home', 'home', '', 'en'),
 (58, 29, '', 'Home', 'Home', 'home', '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `menus`
 --
-
 CREATE TABLE `menus` (
   `id` int(11) NOT NULL,
   `name` varchar(300) COLLATE latin1_general_ci NOT NULL,
@@ -1558,22 +1391,17 @@ CREATE TABLE `menus` (
   `code` varchar(200) COLLATE latin1_general_ci NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'N'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `menus`
 --
-
 INSERT INTO `menus` (`id`, `name`, `class`, `code`, `status`) VALUES
 (1, 'Main Menu', '', 'mainmenu', 'Y'),
 (2, 'Footer Menu', '', 'footer', 'Y'),
 (3, 'Policy Menu', '', 'policy', 'Y');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `news`
 --
-
 CREATE TABLE `news` (
   `id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
@@ -1582,23 +1410,18 @@ CREATE TABLE `news` (
   `widgets` varchar(300) COLLATE latin1_general_ci DEFAULT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'N'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `news`
 --
-
 INSERT INTO `news` (`id`, `category_id`, `sectors_id`, `slug`, `widgets`, `status`) VALUES
 (1, 1, NULL, 'how-to-deep-clean-your-kitchen', NULL, 'Y'),
 (2, 2, NULL, '10-ways-to-save-more-waste-less', NULL, 'Y'),
 (3, 1, NULL, 'oure-new-works', NULL, 'Y'),
 (4, 1, NULL, '10-ways-to-save-more-waste-less201005013922', NULL, 'Y');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `newsletter`
 --
-
 CREATE TABLE `newsletter` (
   `id` int(10) UNSIGNED NOT NULL,
   `fullname` varchar(255) DEFAULT NULL,
@@ -1607,11 +1430,9 @@ CREATE TABLE `newsletter` (
   `company` varchar(300) DEFAULT NULL,
   `added_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
 --
 -- Dumping data for table `newsletter`
 --
-
 INSERT INTO `newsletter` (`id`, `fullname`, `email`, `phone`, `company`, `added_on`) VALUES
 (1, 'Yamuna V', 'yamuna@webchannel.ae', '0501234567', 'Webchannel', '2017-12-12 11:43:54'),
 (2, 'yamuna', 'yamuna@webchannel.ae', '01234567', 'abc', '2017-12-12 11:44:31'),
@@ -1620,13 +1441,10 @@ INSERT INTO `newsletter` (`id`, `fullname`, `email`, `phone`, `company`, `added_
 (5, 'Yamuna V', 'yamuna@webchannel.ae', '0501234567', 'Webchannel', '2017-12-12 12:00:24'),
 (6, 'Yamuna V', 'yamuna@webchannel.ae', '0501234567', 'Webchannel', '2017-12-12 12:02:20'),
 (7, 'Ganga', 'ganga@webchannel.ae', '', 'v', '2017-12-12 12:07:34');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `news_category`
 --
-
 CREATE TABLE `news_category` (
   `id` int(11) NOT NULL,
   `slug` varchar(300) COLLATE latin1_general_ci NOT NULL,
@@ -1635,21 +1453,16 @@ CREATE TABLE `news_category` (
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL,
   `sort_order` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `news_category`
 --
-
 INSERT INTO `news_category` (`id`, `slug`, `icon`, `breadcrumb_status`, `status`, `sort_order`) VALUES
 (1, 'news', NULL, NULL, 'Y', 0),
 (2, 'events', NULL, NULL, 'Y', 0);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `news_category_desc`
 --
-
 CREATE TABLE `news_category_desc` (
   `desc_id` int(11) NOT NULL,
   `content_category_id` int(11) NOT NULL,
@@ -1658,23 +1471,18 @@ CREATE TABLE `news_category_desc` (
   `keywords` text COLLATE latin1_general_ci,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL DEFAULT 'en'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `news_category_desc`
 --
-
 INSERT INTO `news_category_desc` (`desc_id`, `content_category_id`, `name`, `short_desc`, `keywords`, `language`) VALUES
 (1, 1, 'News', NULL, NULL, 'en'),
 (2, 1, 'News', NULL, NULL, 'ar'),
 (3, 2, 'Events', NULL, NULL, 'en'),
 (4, 2, 'Events', NULL, NULL, 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `news_desc`
 --
-
 CREATE TABLE `news_desc` (
   `desc_id` int(11) NOT NULL,
   `contents_id` int(11) NOT NULL,
@@ -1691,11 +1499,9 @@ CREATE TABLE `news_desc` (
   `banner_image` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   `language` varchar(10) COLLATE latin1_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `news_desc`
 --
-
 INSERT INTO `news_desc` (`desc_id`, `contents_id`, `title`, `meta_title`, `short_desc`, `location`, `desc`, `keywords`, `meta_desc`, `date_time`, `image`, `banner_text`, `banner_image`, `language`) VALUES
 (1, 1, 'How to deep clean your kitchen', 'How to deep clean your kitchen', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Dubai', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pulvinar urna a diam elementum, et bibendum diam ornare. Morbi gravida non ipsum in euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eleifend, ex at facilisis eleifend, est neque sodales purus, sit amet convallis nulla risus non arcu. Sed ullamcorper vitae justo&nbsp;</p>\r\n', 'How to deep clean your kitchen', 'How to deep clean your kitchen', '2020-10-04 14:33:00', '1.jpg', NULL, '', 'en'),
 (2, 1, 'How to deep clean your kitchen', NULL, NULL, '', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pulvinar urna a diam elementum, et bibendum diam ornare. Morbi gravida non ipsum in euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eleifend, ex at facilisis eleifend, est neque sodales purus, sit amet convallis nulla risus non arcu. Sed ullamcorper vitae justo&nbsp;</p>\r\n', NULL, NULL, '2020-10-04 14:33:22', '', NULL, '', 'ar'),
@@ -1705,24 +1511,19 @@ INSERT INTO `news_desc` (`desc_id`, `contents_id`, `title`, `meta_title`, `short
 (6, 3, 'Oure New Works', 'Oure New Works', NULL, 'Dubai', '<p>We focus on offering the highest level of service in the industry and deliver real &lsquo;solutions with a soul&rsquo; that truly enhance the value of your investment. We are committed to keep a sight of the constantly changing needs of our customers.</p>\r\n', 'Oure New Works', 'Oure New Works', '2020-10-04 15:16:58', '', NULL, '', 'ar'),
 (7, 4, '10 ways to save more & waste less', '10 ways to save more & waste less', '10 ways to save more & waste less', 'Dubai', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\r\n', '10 ways to save more & waste less', '10 ways to save more & waste less', '2020-10-01 00:00:00', '11.jpg', NULL, '', 'en'),
 (8, 4, '10 ways to save more & waste less', '10 ways to save more & waste less', '10 ways to save more & waste less', 'Dubai', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\r\n', '10 ways to save more & waste less', '10 ways to save more & waste less', '2020-10-01 00:00:00', '11.jpg', NULL, '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `pages`
 --
-
 CREATE TABLE `pages` (
   `id` int(11) NOT NULL,
   `key` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `widgets` varchar(300) COLLATE latin1_general_ci DEFAULT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `pages`
 --
-
 INSERT INTO `pages` (`id`, `key`, `widgets`, `status`) VALUES
 (1, 'contactus', '', 'Y'),
 (2, 'clients', NULL, 'Y'),
@@ -1733,13 +1534,10 @@ INSERT INTO `pages` (`id`, `key`, `widgets`, `status`) VALUES
 (7, 'downloads', NULL, 'Y'),
 (8, 'gallery', NULL, 'Y'),
 (9, 'services', NULL, 'Y');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `pages_desc`
 --
-
 CREATE TABLE `pages_desc` (
   `desc_id` int(11) NOT NULL,
   `pages_id` int(11) NOT NULL,
@@ -1752,11 +1550,9 @@ CREATE TABLE `pages_desc` (
   `banner_image` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `pages_desc`
 --
-
 INSERT INTO `pages_desc` (`desc_id`, `pages_id`, `title`, `meta_title`, `short_desc`, `desc`, `keywords`, `banner_text`, `banner_image`, `language`) VALUES
 (1, 1, 'Contact Us', 'Contact Saralle', 'contactus', '<p>contactus</p>\r\n', 'contactus', '', 'spot-contact.jpg', 'en'),
 (2, 1, 'Contact Us', NULL, 'contactus', '<p>contactus</p>\r\n', 'contactus', '', '', 'ar'),
@@ -1776,23 +1572,18 @@ INSERT INTO `pages_desc` (`desc_id`, `pages_id`, `title`, `meta_title`, `short_d
 (16, 8, 'Gallery', 'gallery', '', '', '', '', '', 'ar'),
 (17, 9, 'Solutions & Services', 'Services', '', '', '', '', '', 'en'),
 (18, 9, 'Services', 'Services', '', '', '', '', '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `permissions`
 --
-
 CREATE TABLE `permissions` (
   `permissions_id` int(11) NOT NULL,
   `page` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   `url` varchar(255) COLLATE latin1_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `permissions`
 --
-
 INSERT INTO `permissions` (`permissions_id`, `page`, `url`) VALUES
 (1, 'Dashboard', 'admin/home/settings'),
 (2, 'Localizaton', 'admin/home/localization'),
@@ -1911,42 +1702,32 @@ INSERT INTO `permissions` (`permissions_id`, `page`, `url`) VALUES
 (115, 'Add Supplier', 'admin/types/add'),
 (116, 'Enquiry List', 'admin/enquiry/lists'),
 (117, 'Newsletter List', 'admin/newsletter/lists');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `roles`
 --
-
 CREATE TABLE `roles` (
   `roles_id` int(11) NOT NULL,
   `role` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'Y'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `roles`
 --
-
 INSERT INTO `roles` (`roles_id`, `role`, `status`) VALUES
 (1, 'Super Admin', 'Y'),
 (2, 'Admin', 'Y');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `role_access`
 --
-
 CREATE TABLE `role_access` (
   `roles_id` int(11) NOT NULL DEFAULT '0',
   `permissions_id` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `role_access`
 --
-
 INSERT INTO `role_access` (`roles_id`, `permissions_id`) VALUES
 (1, 91),
 (1, 90),
@@ -2052,13 +1833,10 @@ INSERT INTO `role_access` (`roles_id`, `permissions_id`) VALUES
 (1, 3),
 (1, 2),
 (1, 1);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `services`
 --
-
 CREATE TABLE `services` (
   `id` int(11) NOT NULL,
   `category_id` varchar(255) COLLATE latin1_general_ci NOT NULL,
@@ -2068,11 +1846,9 @@ CREATE TABLE `services` (
   `featured` enum('Y','N') COLLATE latin1_general_ci DEFAULT 'N',
   `sort_order` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `services`
 --
-
 INSERT INTO `services` (`id`, `category_id`, `price`, `slug`, `status`, `featured`, `sort_order`) VALUES
 (1, '1', 33320, 'mep-amc', 'Y', 'Y', 0),
 (2, '1', 550, 'general-maintenance', 'Y', 'Y', 0),
@@ -2089,13 +1865,10 @@ INSERT INTO `services` (`id`, `category_id`, `price`, `slug`, `status`, `feature
 (13, '2', 0, 'waste-removal', 'Y', 'N', 0),
 (14, '2', 0, 'office-boy-commercial', 'Y', 'N', 0),
 (15, '2', 0, 'cleaners-commercial-and-residential', 'Y', 'N', 0);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `services_category`
 --
-
 CREATE TABLE `services_category` (
   `id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
@@ -2104,21 +1877,16 @@ CREATE TABLE `services_category` (
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL,
   `featured` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'N'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `services_category`
 --
-
 INSERT INTO `services_category` (`id`, `parent_id`, `slug`, `breadcrumb_status`, `status`, `featured`) VALUES
 (1, 0, 'hard-services', 'Y', 'Y', 'N'),
 (2, 0, 'soft-services', 'Y', 'Y', 'N');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `services_category_desc`
 --
-
 CREATE TABLE `services_category_desc` (
   `desc_id` int(11) NOT NULL,
   `content_category_id` int(11) NOT NULL,
@@ -2130,23 +1898,18 @@ CREATE TABLE `services_category_desc` (
   `keywords` text COLLATE latin1_general_ci NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `services_category_desc`
 --
-
 INSERT INTO `services_category_desc` (`desc_id`, `content_category_id`, `name`, `desc`, `image`, `pdf`, `short_desc`, `keywords`, `language`) VALUES
 (1, 1, 'Hard Services ', '<p>Hard Services&nbsp;</p>\r\n', '', NULL, 'Hard Services ', '', 'en'),
 (2, 1, 'Hard Services ', '<p>Hard Services&nbsp;</p>\r\n', '', NULL, 'Hard Services ', '', 'ar'),
 (3, 2, 'Soft Services ', '<p>Soft Services&nbsp;</p>\r\n', '', NULL, 'Soft Services ', '', 'en'),
 (4, 2, 'Soft Services ', '<p>Soft Services&nbsp;</p>\r\n', '', NULL, 'Soft Services ', '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `services_desc`
 --
-
 CREATE TABLE `services_desc` (
   `desc_id` int(11) NOT NULL,
   `services_id` int(11) NOT NULL,
@@ -2163,11 +1926,9 @@ CREATE TABLE `services_desc` (
   `banner_image` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
   `language` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT 'en'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
 --
 -- Dumping data for table `services_desc`
 --
-
 INSERT INTO `services_desc` (`desc_id`, `services_id`, `title`, `short_desc`, `desc`, `keywords`, `meta_desc`, `meta_title`, `image`, `icon`, `pdf`, `banner_text`, `banner_image`, `language`) VALUES
 (1, 1, 'MEP-AMC', 'MEP-AMC', '<p>The engineers at MAFS work across UAE to provide its customers, flexible MEP maintenance services to help maintain the investment that they&rsquo;ve made.</p>\r\n\r\n<p>MEP maintenance has more to it than just looking after and managing your building systems. Our bunch of multi-talented engineers cater to full range of mechanical construction services from elevators to HAVC ducting including design, manufacture, installation and maintenance. Our team of electrical and automation service individuals are armed with skills and expertise who can undertake your full scope of electrical works from CAD design, installation and maintenance of a project. Services we provide include complete hydraulics, plumbing and drainage solutions for a range of businesses and construction types, within the Residential, Commercial and Industrial sectors as per the property requirements.</p>\r\n\r\n<p>Our comprehensive MEP (mechanical, electrical and plumbing) maintenance capabilities are designed to give your assets uninterrupted and maximum performance through a schedule of planned preventative maintenance (PPM), routing breakdown callouts and emergency response services. We plan our maintenance programmers completely around managing your assets in the most efficient way. This includes assessing their effectiveness over time and making recommendations for replacement where applicable.</p>\r\n\r\n<p>At every stage we apply the most stringent QHSE (quality, health, safety and environmental) controls in line with our international accreditations. Our on-site QHSE team regularly audits our site operations and remains vigilant to anything that may in any way compromise safety or affect the quality of our service delivery.</p>\r\n\r\n<p>All our MEP and QHSE operations are managed through our computer-aided facilities management system, through which we can fully monitor our performance against the project-specific key performance indicators agreed with the client. The system also provides clients with complete transparency on our performance deliverables through a &lsquo;dashboard&rsquo; system which shows a complete status report on all aspects of our operations 24/7.</p>\r\n\r\n<p>Our highly skilled team know everything about your mechanical, electrical and plumbing maintenance needs and compliance, so that you can relax in the knowledge that you are in safe hands.</p>\r\n', 'MEP-AMC', 'MEP-AMC', 'MEP-AMC', 'mep-1-480x4801.jpg', NULL, NULL, '', NULL, 'en'),
 (2, 1, 'MEP-AMC', 'MEP-AMC', '<p>The engineers at MAFS work across UAE to provide its customers, flexible MEP maintenance services to help maintain the investment that they&rsquo;ve made.</p>\r\n\r\n<p>MEP maintenance has more to it than just looking after and managing your building systems. Our bunch of multi-talented engineers cater to full range of mechanical construction services from elevators to HAVC ducting including design, manufacture, installation and maintenance. Our team of electrical and automation service individuals are armed with skills and expertise who can undertake your full scope of electrical works from CAD design, installation and maintenance of a project. Services we provide include complete hydraulics, plumbing and drainage solutions for a range of businesses and construction types, within the Residential, Commercial and Industrial sectors as per the property requirements.</p>\r\n\r\n<p>Our comprehensive MEP (mechanical, electrical and plumbing) maintenance capabilities are designed to give your assets uninterrupted and maximum performance through a schedule of planned preventative maintenance (PPM), routing breakdown callouts and emergency response services. We plan our maintenance programmers completely around managing your assets in the most efficient way. This includes assessing their effectiveness over time and making recommendations for replacement where applicable.</p>\r\n\r\n<p>At every stage we apply the most stringent QHSE (quality, health, safety and environmental) controls in line with our international accreditations. Our on-site QHSE team regularly audits our site operations and remains vigilant to anything that may in any way compromise safety or affect the quality of our service delivery.</p>\r\n\r\n<p>All our MEP and QHSE operations are managed through our computer-aided facilities management system, through which we can fully monitor our performance against the project-specific key performance indicators agreed with the client. The system also provides clients with complete transparency on our performance deliverables through a &lsquo;dashboard&rsquo; system which shows a complete status report on all aspects of our operations 24/7.</p>\r\n\r\n<p>Our highly skilled team know everything about your mechanical, electrical and plumbing maintenance needs and compliance, so that you can relax in the knowledge that you are in safe hands.</p>\r\n', 'MEP-AMC', 'MEP-AMC', 'MEP-AMC', NULL, NULL, NULL, '', NULL, 'ar'),
@@ -2199,13 +1960,10 @@ INSERT INTO `services_desc` (`desc_id`, `services_id`, `title`, `short_desc`, `d
 (28, 14, 'Office boy - Commercial', 'Office boy-commercial', '<p>MAFS envisions to deliver the best gypsum works service a client can possible avail across UAE. Our gypsum masterpieces are utterly unique and successful in the gypsum market. Our services are customized, designed and well-crafted products of gypsum, gypsum board, gypsum decoration, false ceiling and gypsum works. The details of the gypsum are client-oriented as well as cost effective, of course, noting the quality. We make it a point to always grow as a company and improve our services to excellence especially when it comes to services for gypsum, gypsum board, gypsum decoration, false ceiling and gypsum works.</p>\r\n\r\n<p>We make sure that every piece is intricately designed and made. Our gypsum decorations are created and made delicately by the team of experts. These gypsum works are conceived according to the most recent demands of gypsum in the market as well as based on the desires and wishes of the clients. In addition to this, only experts are doing all the gypsum, gypsum board, gypsum decoration, false ceiling and gypsum works. we are guaranteeing to provide with the best service they could possibly avail now in gypsum works.</p>\r\n\r\n<p>Such type pf services and assistance make us one of the top gypsum works companies across UAE. To emphasize more, we value client satisfaction in whatever way necessary, making it a highlight in every single project entrusted to us.</p>\r\n', 'Office boy-commercial', 'Office boy-commercial', 'Office boy-commercial', NULL, NULL, NULL, '', NULL, 'ar'),
 (29, 15, 'Cleaners - Commercial and Residential', 'Cleaners- commercial and residential\r\n', '<p>MAFS envisions to deliver the best gypsum works service a client can possible avail across UAE. Our gypsum masterpieces are utterly unique and successful in the gypsum market. Our services are customized, designed and well-crafted products of gypsum, gypsum board, gypsum decoration, false ceiling and gypsum works. The details of the gypsum are client-oriented as well as cost effective, of course, noting the quality. We make it a point to always grow as a company and improve our services to excellence especially when it comes to services for gypsum, gypsum board, gypsum decoration, false ceiling and gypsum works.</p>\r\n\r\n<p>We make sure that every piece is intricately designed and made. Our gypsum decorations are created and made delicately by the team of experts. These gypsum works are conceived according to the most recent demands of gypsum in the market as well as based on the desires and wishes of the clients. In addition to this, only experts are doing all the gypsum, gypsum board, gypsum decoration, false ceiling and gypsum works. we are guaranteeing to provide with the best service they could possibly avail now in gypsum works.</p>\r\n\r\n<p>Such type pf services and assistance make us one of the top gypsum works companies across UAE. To emphasize more, we value client satisfaction in whatever way necessary, making it a highlight in every single project entrusted to us.</p>\r\n', 'Cleaners- commercial and residential', 'Cleaners- commercial and residential', 'Cleaners- commercial and residential', NULL, NULL, NULL, '', NULL, 'en'),
 (30, 15, 'Cleaners - Commercial and Residential', 'Cleaners- commercial and residential\r\n', '<p>MAFS envisions to deliver the best gypsum works service a client can possible avail across UAE. Our gypsum masterpieces are utterly unique and successful in the gypsum market. Our services are customized, designed and well-crafted products of gypsum, gypsum board, gypsum decoration, false ceiling and gypsum works. The details of the gypsum are client-oriented as well as cost effective, of course, noting the quality. We make it a point to always grow as a company and improve our services to excellence especially when it comes to services for gypsum, gypsum board, gypsum decoration, false ceiling and gypsum works.</p>\r\n\r\n<p>We make sure that every piece is intricately designed and made. Our gypsum decorations are created and made delicately by the team of experts. These gypsum works are conceived according to the most recent demands of gypsum in the market as well as based on the desires and wishes of the clients. In addition to this, only experts are doing all the gypsum, gypsum board, gypsum decoration, false ceiling and gypsum works. we are guaranteeing to provide with the best service they could possibly avail now in gypsum works.</p>\r\n\r\n<p>Such type pf services and assistance make us one of the top gypsum works companies across UAE. To emphasize more, we value client satisfaction in whatever way necessary, making it a highlight in every single project entrusted to us.</p>\r\n', 'Cleaners- commercial and residential', 'Cleaners- commercial and residential', 'Cleaners- commercial and residential', NULL, NULL, NULL, '', NULL, 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `settings`
 --
-
 CREATE TABLE `settings` (
   `id` int(11) NOT NULL,
   `title` varchar(300) COLLATE latin1_general_ci NOT NULL,
@@ -2213,11 +1971,9 @@ CREATE TABLE `settings` (
   `settingtype` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'N'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `settings`
 --
-
 INSERT INTO `settings` (`id`, `title`, `settingkey`, `settingtype`, `status`) VALUES
 (1, 'Admin email address', 'ADMIN_EMAIL', 'text', 'Y'),
 (2, 'From email address', 'FROM_EMAIL', 'text', 'Y'),
@@ -2257,24 +2013,19 @@ INSERT INTO `settings` (`id`, `title`, `settingkey`, `settingtype`, `status`) VA
 (40, 'Instagram Link.', 'INSTAGRAM_LINK', 'text', 'N'),
 (41, 'Pinterest Link.', 'PIN_LINK', 'text', 'N'),
 (42, 'Facilities and Amenities', 'FACILITY_SLUG', 'text', 'N');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `settings_desc`
 --
-
 CREATE TABLE `settings_desc` (
   `desc_id` int(11) NOT NULL,
   `settings_id` int(11) NOT NULL,
   `settingvalue` text CHARACTER SET utf8 NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `settings_desc`
 --
-
 INSERT INTO `settings_desc` (`desc_id`, `settings_id`, `settingvalue`, `language`) VALUES
 (1, 1, 'mail2yamunav@gmail.com', 'en'),
 (5, 2, 'mail2yamunav@gmail.com', 'en'),
@@ -2352,13 +2103,10 @@ INSERT INTO `settings_desc` (`desc_id`, `settings_id`, `settingvalue`, `language
 (174, 40, 'https://www.instagram.com/', 'ar'),
 (175, 41, 'https://www.pinterest.com/', 'ar'),
 (176, 42, 'facilities-and-amenities', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `users`
 --
-
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `fname` varchar(255) DEFAULT NULL,
@@ -2392,13 +2140,10 @@ CREATE TABLE `users` (
   `added_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `slug` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `video`
 --
-
 CREATE TABLE `video` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
@@ -2406,42 +2151,32 @@ CREATE TABLE `video` (
   `status` enum('Y','N') COLLATE latin1_general_ci DEFAULT 'N',
   `sort_order` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `video`
 --
-
 INSERT INTO `video` (`id`, `category_id`, `slug`, `status`, `sort_order`) VALUES
 (1, 1, NULL, 'Y', 0),
 (2, 1, NULL, 'Y', 0),
 (3, 1, NULL, 'Y', 0);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `video_category`
 --
-
 CREATE TABLE `video_category` (
   `id` int(11) NOT NULL,
   `slug` varchar(300) COLLATE latin1_general_ci NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL,
   `sort_order` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `video_category`
 --
-
 INSERT INTO `video_category` (`id`, `slug`, `status`, `sort_order`) VALUES
 (1, 'how-to-deep-clean-your-kitchen', 'Y', 0);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `video_category_desc`
 --
-
 CREATE TABLE `video_category_desc` (
   `desc_id` int(11) NOT NULL,
   `gallery_category_id` int(11) NOT NULL,
@@ -2449,21 +2184,16 @@ CREATE TABLE `video_category_desc` (
   `image` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `video_category_desc`
 --
-
 INSERT INTO `video_category_desc` (`desc_id`, `gallery_category_id`, `title`, `image`, `language`) VALUES
 (1, 1, 'How to deep clean your kitchen', '', 'en'),
 (2, 1, 'How to deep clean your kitchen', '', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `video_desc`
 --
-
 CREATE TABLE `video_desc` (
   `desc_id` int(11) NOT NULL,
   `gallery_id` int(11) NOT NULL,
@@ -2473,11 +2203,9 @@ CREATE TABLE `video_desc` (
   `video` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Dumping data for table `video_desc`
 --
-
 INSERT INTO `video_desc` (`desc_id`, `gallery_id`, `title`, `desc`, `image`, `video`, `language`) VALUES
 (1, 1, 'How to deep clean your kitchen', '<p>We focus on offering the highest level of service in the industry and deliver real &lsquo;solutions with a soul&rsquo; that truly enhance the value of your investment. We are committed to keep a sight of the constantly changing needs of our customers.</p>\r\n', '', 'https://www.youtube.com/watch?v=DbFi2RrKWDo', 'en'),
 (2, 1, 'How to deep clean your kitchen', '<p>We focus on offering the highest level of service in the industry and deliver real &lsquo;solutions with a soul&rsquo; that truly enhance the value of your investment. We are committed to keep a sight of the constantly changing needs of our customers.</p>\r\n', '', 'https://www.youtube.com/watch?v=DbFi2RrKWDo', 'ar'),
@@ -2485,13 +2213,10 @@ INSERT INTO `video_desc` (`desc_id`, `gallery_id`, `title`, `desc`, `image`, `vi
 (4, 2, 'Oure New Works', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</p>\r\n', '', 'https://www.youtube.com/watch?v=nNVMoQ_pPuE', 'ar'),
 (5, 3, 'Lorum epsum', '<p>Lorum epsum</p>\r\n', '', 'https://www.youtube.com/watch?v=nNVMoQ_pPuE', 'en'),
 (6, 3, 'Lorum epsum', '<p>Lorum epsum</p>\r\n', '', 'https://www.youtube.com/watch?v=nNVMoQ_pPuE', 'ar');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `widgets`
 --
-
 CREATE TABLE `widgets` (
   `id` int(11) NOT NULL,
   `key` varchar(100) COLLATE latin1_general_ci NOT NULL,
@@ -2503,727 +2228,605 @@ CREATE TABLE `widgets` (
   `sort_order` int(11) NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `widgets_desc`
 --
-
 CREATE TABLE `widgets_desc` (
   `desc_id` int(11) NOT NULL,
   `widgets_id` int(11) NOT NULL,
   `html` text CHARACTER SET utf8 NOT NULL,
   `language` varchar(10) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
 --
 -- Indexes for dumped tables
 --
-
 --
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `admin_logins`
 --
 ALTER TABLE `admin_logins`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `admin_reset`
 --
 ALTER TABLE `admin_reset`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `applications`
 --
 ALTER TABLE `applications`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `banners`
 --
 ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `banners_desc`
 --
 ALTER TABLE `banners_desc`
   ADD PRIMARY KEY (`desc_id`),
   ADD KEY `banners_id` (`banners_id`);
-
 --
 -- Indexes for table `captcha`
 --
 ALTER TABLE `captcha`
   ADD PRIMARY KEY (`captcha_id`),
   ADD KEY `word` (`word`);
-
 --
 -- Indexes for table `client`
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `contacts_desc`
 --
 ALTER TABLE `contacts_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `contact_category`
 --
 ALTER TABLE `contact_category`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `contact_category_desc`
 --
 ALTER TABLE `contact_category_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `contents`
 --
 ALTER TABLE `contents`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `contents_desc`
 --
 ALTER TABLE `contents_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `content_category`
 --
 ALTER TABLE `content_category`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `content_category_desc`
 --
 ALTER TABLE `content_category_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `downloads`
 --
 ALTER TABLE `downloads`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `downloads_desc`
 --
 ALTER TABLE `downloads_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `download_category`
 --
 ALTER TABLE `download_category`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `download_category_desc`
 --
 ALTER TABLE `download_category_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `enquiry_master`
 --
 ALTER TABLE `enquiry_master`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `events_category`
 --
 ALTER TABLE `events_category`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `events_category_desc`
 --
 ALTER TABLE `events_category_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `events_desc`
 --
 ALTER TABLE `events_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `gallery_category`
 --
 ALTER TABLE `gallery_category`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `gallery_category_desc`
 --
 ALTER TABLE `gallery_category_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `gallery_desc`
 --
 ALTER TABLE `gallery_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `languages`
 --
 ALTER TABLE `languages`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `localization`
 --
 ALTER TABLE `localization`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `menuitems`
 --
 ALTER TABLE `menuitems`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `menuitems_desc`
 --
 ALTER TABLE `menuitems_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `newsletter`
 --
 ALTER TABLE `newsletter`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `news_category`
 --
 ALTER TABLE `news_category`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `news_category_desc`
 --
 ALTER TABLE `news_category_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `news_desc`
 --
 ALTER TABLE `news_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `pages_desc`
 --
 ALTER TABLE `pages_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`permissions_id`);
-
 --
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`roles_id`);
-
 --
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `services_category`
 --
 ALTER TABLE `services_category`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `services_category_desc`
 --
 ALTER TABLE `services_category_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `services_desc`
 --
 ALTER TABLE `services_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `settings_desc`
 --
 ALTER TABLE `settings_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `video`
 --
 ALTER TABLE `video`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `video_category`
 --
 ALTER TABLE `video_category`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `video_category_desc`
 --
 ALTER TABLE `video_category_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `video_desc`
 --
 ALTER TABLE `video_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- Indexes for table `widgets`
 --
 ALTER TABLE `widgets`
   ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `widgets_desc`
 --
 ALTER TABLE `widgets_desc`
   ADD PRIMARY KEY (`desc_id`);
-
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
 --
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `admin_logins`
 --
 ALTER TABLE `admin_logins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
-
 --
 -- AUTO_INCREMENT for table `admin_reset`
 --
 ALTER TABLE `admin_reset`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
-
 --
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `banners_desc`
 --
 ALTER TABLE `banners_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `captcha`
 --
 ALTER TABLE `captcha`
   MODIFY `captcha_id` bigint(13) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `contacts_desc`
 --
 ALTER TABLE `contacts_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `contact_category`
 --
 ALTER TABLE `contact_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `contact_category_desc`
 --
 ALTER TABLE `contact_category_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `contents_desc`
 --
 ALTER TABLE `contents_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
 --
 -- AUTO_INCREMENT for table `content_category`
 --
 ALTER TABLE `content_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `content_category_desc`
 --
 ALTER TABLE `content_category_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=858;
-
 --
 -- AUTO_INCREMENT for table `downloads`
 --
 ALTER TABLE `downloads`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `downloads_desc`
 --
 ALTER TABLE `downloads_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `download_category`
 --
 ALTER TABLE `download_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `download_category_desc`
 --
 ALTER TABLE `download_category_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `enquiry_master`
 --
 ALTER TABLE `enquiry_master`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `events_category`
 --
 ALTER TABLE `events_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `events_category_desc`
 --
 ALTER TABLE `events_category_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `events_desc`
 --
 ALTER TABLE `events_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `gallery_category`
 --
 ALTER TABLE `gallery_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `gallery_category_desc`
 --
 ALTER TABLE `gallery_category_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `gallery_desc`
 --
 ALTER TABLE `gallery_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `localization`
 --
 ALTER TABLE `localization`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `menuitems`
 --
 ALTER TABLE `menuitems`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
 --
 -- AUTO_INCREMENT for table `menuitems_desc`
 --
 ALTER TABLE `menuitems_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
-
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `newsletter`
 --
 ALTER TABLE `newsletter`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `news_category`
 --
 ALTER TABLE `news_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `news_category_desc`
 --
 ALTER TABLE `news_category_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `news_desc`
 --
 ALTER TABLE `news_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `pages_desc`
 --
 ALTER TABLE `pages_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `permissions_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
-
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `roles_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
 --
 -- AUTO_INCREMENT for table `services_category`
 --
 ALTER TABLE `services_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `services_category_desc`
 --
 ALTER TABLE `services_category_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `services_desc`
 --
 ALTER TABLE `services_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
-
 --
 -- AUTO_INCREMENT for table `settings_desc`
 --
 ALTER TABLE `settings_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `video`
 --
 ALTER TABLE `video`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `video_category`
 --
 ALTER TABLE `video_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `video_category_desc`
 --
 ALTER TABLE `video_category_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `video_desc`
 --
 ALTER TABLE `video_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `widgets`
 --
 ALTER TABLE `widgets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `widgets_desc`
 --
 ALTER TABLE `widgets_desc`
   MODIFY `desc_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
