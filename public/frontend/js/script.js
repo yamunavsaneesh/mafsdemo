@@ -1,6 +1,5 @@
 (function ($) {
   'use strict';
-
   //  Count Up
   function counter() {
     var oTop;
@@ -31,7 +30,6 @@
   $(window).on('scroll', function () {
     counter();
   });
-
   // bottom to top
   $('#top').click(function () {
     $('html, body').animate({
@@ -40,9 +38,7 @@
     return false;
   });
   // bottom to top
-
   $(document).on('ready', function () {
-
     // Nice Select
     $('select').niceSelect();
     // -----------------------------
@@ -82,7 +78,6 @@
     // -----------------------------
     // Datepicker Init
     // -----------------------------
-
     // -----------------------------
     // Button Active Toggle
     // -----------------------------
@@ -100,15 +95,10 @@
     });
     /***ON-LOAD***/
     jQuery(window).on('load', function () {
-
     });
-
   });
-
   // niceSelect
-
   $('select:not(.ignore)').niceSelect();
-
   // blog post-slider
   $('.post-slider').slick({
     dots: false,
@@ -118,7 +108,6 @@
     autoplay: true,
     fade: true
   });
-
   // Client Slider 
   $('.category-slider').slick({
     dots: false,
@@ -157,9 +146,7 @@
       // instead of a settings object
     ]
   });
-
   // trending-ads-slide 
-
   $('.trending-ads-slide').slick({
     dots: false,
     arrows: false,
@@ -195,8 +182,6 @@
       // instead of a settings object
     ]
   });
-
-
   // product-slider
   $('.product-slider').slick({
     dots: true,
@@ -212,19 +197,13 @@
       return '<img class="img-fluid" src="' + image + '" alt="product-img">';
     }
   });
-
-
-
   // tooltip
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
-
      // bootstrap slider range
   $('.range-track').slider({});
   $('.range-track').on('slide', function (slideEvt) {
     $('.value').text('$' + slideEvt.value[0] + ' - ' + '$' + slideEvt.value[1]);
   });
-
-
 })(jQuery);

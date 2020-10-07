@@ -1,6 +1,6 @@
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <base href="<?php echo base_url('/'); ?>" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -21,10 +21,10 @@
     </script>
     <script type="text/javascript" src="<?php echo base_url('public/admin/ckeditor/ckeditor.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('public/admin/ckfinder/ckfinder.js'); ?>"></script>
-</head> 
+</head>
 <body>
     <div class="wrap"> <?php echo $header; ?>
-        <div id="content"> <?php echo $left; ?>
+        <div id="content"> <?php // echo $left; ?>
             <div id="main"> <?php echo $content; ?> </div>
             <div class="clear"></div>
         </div>
@@ -35,7 +35,7 @@
     function confirmBox() {
         var e = confirm("Are you sure?");
         return 1 == e ? !0 : !1
-    } 
+    }
     function confirmDelete() {
         return 1 == $(".chkbx").is(":checked") ? 1 == confirm("Are you sure?") ? !0 : !1 : 0 == $(".chkbx").is(
             ":checked") ? (alert("Choose a record to delete"), !1) : void 0
@@ -50,5 +50,5 @@
         $(".fancybox").fancybox({}), $(".lightbox").fancybox()
     });
     </script>
-</body> 
+</body>
 </html>
