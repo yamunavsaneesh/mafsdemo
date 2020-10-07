@@ -5,7 +5,7 @@ class Gallery extends MAFS_Controller {
  		$this->load->model(array('frontend/gallerycategory_model','frontend/gallery_model','frontend/pages_model','frontend/news_model'));   
  		$this->load->library('pagination');   
  		$mediacenter=$this->menuitems_model->get_array(array('parent_id'=>11,'status'=>'Y'),'name as title,icon as image,link ,link as slug');   
-		$lists['left']=$this->frontleftmenu($mediacenter);$lists['latestnews']=$this->latestnews();  
+		$lists['left']=$this->frontleftmenu($mediacenter);
 		$lists['pagemeta']=$pagemeta=$this->pages_model->get_row_cond(array('key'=>'gallery'));   
 		if($pagemeta->title!=''){$this->pagetitle=$pagemeta->title;}  
 		if($pagemeta->short_desc!=''){$this->desc=$pagemeta->short_desc; }  

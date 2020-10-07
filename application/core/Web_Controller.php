@@ -231,18 +231,7 @@ class MAFS_Controller extends CI_Controller {
 	{
 		$left['datas']=$datas;
 		return $this->load->view('frontend/include/left',$left,true);
-	}
-	function latestnews()
-	{
-		$this->load->model(array('frontend/news_model')); 
-		$left['latestnews']=$this->news_model->get_array_limit(3);
-		return $this->load->view('frontend/include/latestnews',$left,true);
-	}
-	/*function frontcontent($frontcontents)
-	{
-  		$frontcontent['maintcontent']=$frontcontents;
-		return $this->load->view('frontend/include/content',$frontcontent,true);
-	}*/
+	} 
  	function frontprintcontent($frontcontents, $leftboxoption=true,$products=true)
 	{
 		if($leftboxoption){

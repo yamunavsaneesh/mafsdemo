@@ -10,8 +10,7 @@ class Services extends MAFS_Controller
     }
     public function index($id = '')
     {
-        $this->load->model(array( 'frontend/pages_model', 'frontend/news_model'));
-        $lists['latestnews'] = $this->latestnews();
+        $this->load->model(array( 'frontend/pages_model', 'frontend/news_model'));       
         if ($id) {$lists['content'] = $pagemeta = $this->sectorscategory_model->get_row_cond(array('slug' => $id), "name as title,meta_title,short_desc,keywords,banner_image,desc");} else { $lists['content'] = $pagemeta = $this->pages_model->get_row_cond(array('key' => 'services'));}
         if ($pagemeta->meta_title != '') {$this->pagetitle = $pagemeta->meta_title;} elseif ($pagemeta->title != '') {$this->pagetitle = $pagemeta->title;}
         if ($pagemeta->short_desc != '') {$this->desc = $pagemeta->short_desc;}
