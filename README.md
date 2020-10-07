@@ -9,4 +9,4 @@
 
 * Change the RewriteBase path in .htaccess
 * Change the base_url path in config.php under application/config 
-* Create databse and run the mafsdb.sql file 
+* Create databse and run the mafsdb.sql 
